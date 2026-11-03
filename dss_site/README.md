@@ -32,10 +32,4 @@ The values in `data/` are derived from it by a statistical model (not the origin
 
 ## How to cite this map
 
-Zaman, AA. (2026). Dhaka river hypoxia risk map [Interactive map]. GitHub. (Add the repository URL once published; add the paper reference when available.)
-
-## Publish on GitHub Pages
-
-1. Create a new public repository and upload these files.
-2. Settings > Pages > Deploy from a branch > `main` / root.
-3. The page appears at `https://<username>.github.io/<repository>/`.
+Zaman, AA. (2026). Dhaka river hypoxia risk map [Interactive map]. GitHub.
