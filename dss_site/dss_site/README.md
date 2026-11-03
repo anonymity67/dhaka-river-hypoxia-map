@@ -2,7 +2,7 @@
 
 Interactive map of the modelled probability that dissolved oxygen (DO) falls below 2 mg/L along Dhaka's peripheral rivers, by season.
 
-- Data: 1,495 water-quality samples at 60 stations on 12 rivers, 2017-2021 (IEEE ClimateChain / Climate++ dataset).
+- Data: 1,495 water-quality samples at 60 stations on 12 rivers, 2017-2021.
 - Model: Bayesian Bernoulli model fitted by INLA-SPDE (season effect, year effect, Matern spatial field). Leave-one-station-out AUC 0.91.
 - Predictions are for a typical year, on OpenStreetMap river, canal, stream and drain lines within 5 km of a station.
 
@@ -32,10 +32,6 @@ The values in `data/` are derived from it by a statistical model (not the origin
 
 ## How to cite this map
 
-Antar, A. (2026). Dhaka river hypoxia risk map [Interactive map]. GitHub. (Add the repository URL once published; add the paper reference when available.)
+Zaman, AA. (2026). Dhaka river hypoxia risk map [Interactive map]. GitHub. (Add the repository URL once published.)
 
-## Publish on GitHub Pages
 
-1. Create a new public repository and upload these files.
-2. Settings > Pages > Deploy from a branch > `main` / root.
-3. The page appears at `https://<username>.github.io/<repository>/`.
