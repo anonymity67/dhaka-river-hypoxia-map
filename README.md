@@ -32,5 +32,6 @@ The values in `data/` are derived from it by a statistical model (not the origin
 
 ## How to cite this map
 
-Zaman, AA. (2026). Dhaka river hypoxia risk map [Interactive map]. GitHub. (Add the repository URL once published)
+Zaman, AA. (2026). Dhaka river hypoxia risk map [Interactive map]. GitHub. https://anonymity67.github.io/dhaka-river-hypoxia-map/
+
 
