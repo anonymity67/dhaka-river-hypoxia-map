@@ -1,14 +1,15 @@
 """Descriptives, beta-binomial river/season tables, logistic regression, Moran's I, Getis-Ord Gi* hotspots, and the Kaggle point-grid check.
 Run from the repository root:  python python/01_descriptives_hotspots_grid.py
-Set CLIMATEPLUS_KIT to the collaborator-kit folder. Outputs go to results/ (stations.csv is needed by 02)."""
+Inputs: data/Water quality.csv and data/Pollution_Intensity_Coordinates_Updated.csv (override with HYPOXIA_DATA_FILE and HYPOXIA_GRID_FILE). Outputs go to results/ (stations.csv is needed by 02)."""
 import pandas as pd, numpy as np, json, sys
 from scipy.stats import beta, spearmanr, kruskal, mannwhitneyu
 from scipy.spatial import cKDTree
 import statsmodels.formula.api as smf
 import os
-K=os.path.abspath(os.environ.get('CLIMATEPLUS_KIT','data/kit'))+'/'   # folder that holds research/water/ and research/gis/ (the Climate++ collaborator kit)
+DATA_FILE=os.environ.get('HYPOXIA_DATA_FILE','data/Water quality.csv')   # Sinha et al. (2026), Mendeley Data
+GRID_FILE=os.environ.get('HYPOXIA_GRID_FILE','data/Pollution_Intensity_Coordinates_Updated.csv')   # Kaggle Bangladesh-River-Pollution-GIS point grid
 os.makedirs('results',exist_ok=True)
-w=pd.read_csv(K+'research/water/Water quality.csv',encoding='utf-8-sig'); w.columns=[c.replace('\n',' ') for c in w.columns]
+w=pd.read_csv(DATA_FILE,encoding='utf-8-sig'); w.columns=[c.replace('\n',' ') for c in w.columns]
 w=w.rename(columns={'DO (mg/L)':'DO','COD (mg/L)':'COD','Nitrate (mg/L)':'NO3','Phosphate (mg/L)':'PO4','Turbidity (NTU)':'Turb','Temp (°C)':'Temp','Rainfall (mm)':'Rain','River/Stream':'River'})
 os.chdir('results')
 w['River']=w.River.str.strip().replace({'Tongi khal':'Tongi Khal'})
@@ -69,7 +70,7 @@ wi=Wg.sum(1); wi2=(Wg**2).sum(1)
 Gi=(Wg@x - xb*wi)/(S*np.sqrt((n*wi2-wi**2)/(n-1)))
 st_use['Gi']=Gi
 # grid validation
-g=pd.read_csv(K+'research/gis/kaggle-v2/Pollution_Intensity_Coordinates_Updated.csv',encoding='utf-8-sig')
+g=pd.read_csv(GRID_FILE,encoding='utf-8-sig')
 gxy=np.c_[g.Latitude*111.0, g.Longitude*111.0*np.cos(np.radians(la0))]; t=cKDTree(gxy)
 d,i=t.query(np.c_[st.lat*111.0, st.lon*111.0*np.cos(np.radians(la0))]); st['grid_near']=g.Pollution_Intensity_Value.values[i]; st['grid_d']=d
 V={}
