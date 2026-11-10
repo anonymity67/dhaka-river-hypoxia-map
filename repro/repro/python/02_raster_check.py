@@ -1,9 +1,9 @@
-"""Raster vs station check. Run from the repository root after 01_descriptives_hotspots_grid.py. Set RASTER and CLIMATEPLUS_KIT if your files are elsewhere."""
+"""Raster vs station check. Run from the repository root after 01_descriptives_hotspots_grid.py. Set RASTER and HYPOXIA_GRID_FILE if your files are elsewhere."""
 import numpy as np, pandas as pd, rasterio
 from scipy.stats import spearmanr, pearsonr, rankdata
 import os
 RASTER = os.environ.get('RASTER','data/pollution_int.tif')
-GRID = os.path.join(os.environ.get('CLIMATEPLUS_KIT','data/kit'),'research/gis/kaggle-v2/Pollution_Intensity_Coordinates_Updated.csv')
+GRID = os.environ.get('HYPOXIA_GRID_FILE','data/Pollution_Intensity_Coordinates_Updated.csv')
 r = rasterio.open(RASTER); a = r.read(1); a = np.where(a < -1e30, np.nan, a)
 g = pd.read_csv(GRID, encoding='utf-8-sig'); st = pd.read_csv('results/stations.csv')
 v = np.array([x[0] for x in r.sample(zip(g.Longitude, g.Latitude))]); v = np.where(v < -1e30, np.nan, v); ok = np.isfinite(v)
