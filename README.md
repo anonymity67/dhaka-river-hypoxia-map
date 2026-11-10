@@ -24,6 +24,18 @@ Sinha, P., Debnath, N., & Bhattacharjee, P. (2026). *Water Quality and Hydroclim
 
 The values in `data/` are derived from it by a statistical model (not the original measurements).
 
+## Reproducing the analysis
+
+The full analysis code is in [`repro/repro/`](repro/repro/): R scripts (INLA-SPDE model, robustness checks, maps), Python scripts (descriptives, Moran's I, Getis-Ord Gi*, raster check) and Google Earth Engine scripts (Sentinel-2 indices). Start with [`repro/repro/README.md`](repro/repro/README.md), which gives the input files to download, the run order and the values to expect.
+
+Inputs are not stored in this repository. Download them into `data/` (or set the environment variables named in `repro/repro/config.R`):
+
+| File | Source |
+|---|---|
+| `Water quality.csv` | Sinha et al. (2026), Mendeley Data, https://doi.org/10.17632/xftpv7jvx3.1 (CC BY 4.0) |
+| `waterways.geojson` | OpenStreetMap waterways for Bangladesh (HOT export on the Humanitarian Data Exchange) |
+| `pollution_int.tif` (optional, exploratory) | Kaggle, Bangladesh-River-Pollution-GIS (MIT) |
+
 ## Licences
 
 - Code (`index.html`): MIT, see `LICENSE`.
