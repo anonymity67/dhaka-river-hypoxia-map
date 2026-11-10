@@ -6,10 +6,10 @@ Code for a Bayesian spatial (INLA-SPDE) model of the probability that dissolved 
 
 | File to place in `data/` | Source |
 |---|---|
-| `Water quality.csv` | Sinha, P., Debnath, N., & Bhattacharjee, P. (2026). *Water Quality and Hydroclimatic Dataset for Rivers and Streams of Dhaka, Bangladesh* (Version 1). Mendeley Data. https://doi.org/10.17632/xftpv7jvx3.1 (CC BY 4.0). Also in the Climate++ collaborator kit under `research/water/`. |
+| `Water quality.csv` | Sinha, P., Debnath, N., & Bhattacharjee, P. (2026). *Water Quality and Hydroclimatic Dataset for Rivers and Streams of Dhaka, Bangladesh* (Version 1). Mendeley Data. https://doi.org/10.17632/xftpv7jvx3.1 (CC BY 4.0). |
 | `waterways.geojson` | OpenStreetMap waterways for Bangladesh (HOT export, "hotosm_bgd_waterways_osm_geojson", via the Humanitarian Data Exchange). (c) OpenStreetMap contributors, ODbL. |
 | `pollution_int.tif` (script 07 only) | Kaggle, Bangladesh-River-Pollution-GIS (MIT licence). |
-| Climate++ kit folder (Python scripts only) | Set `CLIMATEPLUS_KIT` to the folder holding `research/water/` and `research/gis/`. |
+| `Pollution_Intensity_Coordinates_Updated.csv` (Python scripts only) | Kaggle, Bangladesh-River-Pollution-GIS (MIT licence), the point-grid file. Place in `data/`. |
 
 Paths are set in `config.R`. Scripts must be run from the repository root.
 
