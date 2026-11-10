@@ -28,7 +28,7 @@ The values in `data/` are derived from it by a statistical model (not the origin
 
 The full analysis code is in [`repro/repro/`](repro/repro/): R scripts (INLA-SPDE model, robustness checks, maps), Python scripts (descriptives, Moran's I, Getis-Ord Gi*, raster check) and Google Earth Engine scripts (Sentinel-2 indices). Start with [`repro/repro/README.md`](repro/repro/README.md), which gives the input files to download, the run order and the values to expect.
 
-Inputs are not stored in this repository. Download them into `data/` (or set the environment variables named in `repro/repro/config.R`):
+Inputs are not stored in this repository. “Download them into repro/repro/data/ (or set the environment variables named in repro/repro/config.R):
 
 | File | Source |
 |---|---|
