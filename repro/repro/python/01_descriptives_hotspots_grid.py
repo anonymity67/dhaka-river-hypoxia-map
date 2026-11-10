@@ -6,8 +6,8 @@ from scipy.stats import beta, spearmanr, kruskal, mannwhitneyu
 from scipy.spatial import cKDTree
 import statsmodels.formula.api as smf
 import os
-DATA_FILE=os.environ.get('HYPOXIA_DATA_FILE','data/Water quality.csv')   # Sinha et al. (2026), Mendeley Data
-GRID_FILE=os.environ.get('HYPOXIA_GRID_FILE','data/Pollution_Intensity_Coordinates_Updated.csv')   # Kaggle Bangladesh-River-Pollution-GIS point grid
+DATA_FILE=os.path.abspath(os.environ.get('HYPOXIA_DATA_FILE','data/Water quality.csv'))   # Sinha et al. (2026), Mendeley Data
+GRID_FILE=os.path.abspath(os.environ.get('HYPOXIA_GRID_FILE','data/Pollution_Intensity_Coordinates_Updated.csv'))   # Kaggle Bangladesh-River-Pollution-GIS point grid
 os.makedirs('results',exist_ok=True)
 w=pd.read_csv(DATA_FILE,encoding='utf-8-sig'); w.columns=[c.replace('\n',' ') for c in w.columns]
 w=w.rename(columns={'DO (mg/L)':'DO','COD (mg/L)':'COD','Nitrate (mg/L)':'NO3','Phosphate (mg/L)':'PO4','Turbidity (NTU)':'Turb','Temp (°C)':'Temp','Rainfall (mm)':'Rain','River/Stream':'River'})
